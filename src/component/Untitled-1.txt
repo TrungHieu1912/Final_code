@@ -1,0 +1,13 @@
+<Card/>
+<Cards/>
+{
+    this.props.config.map(v =>{
+        <Card config={v}/>
+    })
+}
+const wwconfig = [
+    {color: red, text: ""},
+    {color: red, text: ""},
+    {color: red, text: ""},
+    {color: red, text: ""},
+]

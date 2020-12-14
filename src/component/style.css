@@ -1,0 +1,21 @@
+#WorldWideConfirmed{
+    background-color:#683CB7 ;
+    border-radius: 16px;
+    height: 120px;
+    padding:16px;
+    color:white;
+}
+#WorldWideDeaths{
+    background-color:#059689 ;
+    border-radius: 16px;
+    height: 120px;
+    padding:16px;
+    color:white;
+}
+#WorldWideRecovered{
+    background-color:#EA1E63 ;
+    border-radius: 16px;
+    height: 120px;
+    padding:16px;
+    color:white;
+}
