@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Formik, Field, Form, ErrorMessage, FormikHelpers, } from 'formik';
 import { connect } from 'react-redux';
-import { fetchUser,} from '../action/actionCreator';
+import { fetchUser, } from '../action/actionCreator';
 import * as Yup from 'yup';
 class Login extends Component {
     constructor(props) {
@@ -19,8 +19,9 @@ class Login extends Component {
         });
         console.log('show', this.state.show);
     }
+
     render() {
-        const { show } = this.state;
+        const { show, arrState } = this.state;
         console.log('show', show)
         const { ShowPassword } = this;
         return (
@@ -80,12 +81,13 @@ class Login extends Component {
                     </Form>
                 )}
             />
+
         );
     }
 }
 
 const mapStateToProps = (state) => ({
-    
+
 });
 
 const mapDispatchToProps = {

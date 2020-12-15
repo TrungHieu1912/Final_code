@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import './App.css';
+import './style/App.css';
 import Login from './component/Login';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import DashBoard from './component/DashBoard';
+import Loading from './component/Loading';
 import {
   BrowserRouter as Router,
   Switch,
@@ -14,24 +14,32 @@ import {
 } from "react-router-dom";
 import { connect } from 'react-redux';
 class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      load: true
+    }
+  }
+  componentDidMount() {
+    setTimeout(() => {
+      this.setState({ load: false });
+    }, 2000);
 
+  }
   render() {
-    const { token } = this.props;
-    let redirectUrl = token ? <Redirect to="/dashboard" /> : <Redirect to="/Login" />
+    console.log('alo', this.state.load)
     return (
       <div className="">
         <Router>
           <Switch>
             <Route exact path="/">
-              {redirectUrl}
+              {this.state.load == true ? <Redirect to="/dashboard" /> : <Login />}
             </Route>
             <Route exact path="/Login">
-              {redirectUrl}
               <Login></Login>
             </Route>
             <Route path="/dashboard">
-              {redirectUrl}
-              <DashBoard></DashBoard>
+              {this.state.load == true ? <Loading/> : <Login />}
             </Route>
           </Switch>
         </Router>
@@ -41,14 +49,8 @@ class App extends Component {
   }
 }
 
-const mapStateToProps = (state) => ({
-  token: state.user.token,
-});
 
-const mapDispatchToProps = {
-
-};
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default App;
 
 
 
